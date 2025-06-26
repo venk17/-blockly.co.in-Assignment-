@@ -1,8 +1,13 @@
 .home {
-  padding-top: 120px;
+  padding-top: 100px;
   min-height: 100vh;
   display: flex;
   align-items: center;
+}
+
+.container {
+  width: 100%;
+  padding: 0 20px;
 }
 
 .home-grid {
@@ -11,10 +16,6 @@
   gap: 60px;
   align-items: center;
   width: 100%;
-}
-
-.home-social {
-  /* Social media is positioned fixed, so this is just a placeholder */
 }
 
 .home-content {
@@ -28,9 +29,9 @@
   font-size: 60px;
   font-weight: 700;
   margin-bottom: 10px;
-  width: 197px;
+  width: fit-content;
   line-height: 1.1;
-  padding-left: 10px
+  padding: 5px 15px 5px 10px;
 }
 
 .name-heading {
@@ -39,12 +40,26 @@
   color: var(--text-primary);
   margin-bottom: 30px;
   line-height: 1.1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.wave-icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+.wave-icon img {
+  width: 50px;
+  height: auto;
 }
 
 .name-underline {
   position: relative;
   display: inline-block;
-  color: #BD3ECC
+  color: #BD3ECC;
 }
 
 .name-underline::after {
@@ -72,8 +87,27 @@
   flex-wrap: wrap;
 }
 
+.btn {
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-download {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.btn-contact {
+  background: var(--gradient-hello);
+  color: white;
+}
+
 .home-image {
-  
   position: relative;
   display: flex;
   flex-direction: column;
@@ -81,25 +115,31 @@
 }
 
 .image-placeholder {
-  background-image: url("../../assets/Hero%20Background.svg");
   background-size: cover;
-  width:100%;
+  width: 100%;
   height: 100%;
-
   overflow: hidden;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   background-image: url("../../assets/Hero%20Background.svg");
 }
 
 .profile-image {
-  width: 80%;
-  height: 80%;
-  object-fit: cover;
-  object-position: center;
-  
+  width: 100%;
+  height: auto;
+  max-width: 350px;
+  object-fit: contain;
+  border-radius: 10px;
 }
 
-.home-email {
-  /* Email component is positioned fixed, so this is just a placeholder */
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .home-grid {
+    grid-template-columns: 60px 1fr 350px;
+    gap: 40px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -112,26 +152,33 @@
   .home-content {
     padding-left: 0;
     order: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .home-image {
     order: 2;
   }
   
-  .image-placeholder {
-    width: 300px;
-    height: 380px;
+  .description {
+    max-width: 100%;
   }
   
   .hello-heading,
   .name-heading {
     font-size: 50px;
   }
+
+  .home-buttons {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 768px) {
   .home {
-    padding-top: 100px;
+    padding-top: 80px;
+    padding-bottom: 60px;
   }
   
   .hello-heading,
@@ -139,21 +186,67 @@
     font-size: 40px;
   }
   
+  .wave-icon img {
+    width: 40px;
+  }
+  
   .description {
     font-size: 16px;
-  }
-  
-  .image-placeholder {
-    width: 250px;
-    height: 320px;
-  }
-  
-  .home-buttons {
-    justify-content: center;
+    margin-bottom: 30px;
   }
   
   .btn {
     padding: 10px 20px;
     font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hello-heading,
+  .name-heading {
+    font-size: 32px;
+  }
+  
+  .hello-heading {
+    width: auto;
+    padding: 5px 15px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .name-heading {
+    justify-content: center;
+  }
+  
+  .wave-icon img {
+    width: 30px;
+  }
+  
+  .home-buttons {
+    gap: 15px;
+  }
+  
+  .profile-image {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hello-heading,
+  .name-heading {
+    font-size: 28px;
+  }
+  
+  .home-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+  
+  .profile-image {
+    max-width: 240px;
   }
 }
