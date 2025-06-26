@@ -1,0 +1,159 @@
+.home {
+  padding-top: 120px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: 60px 1fr 400px;
+  gap: 60px;
+  align-items: center;
+  width: 100%;
+}
+
+.home-social {
+  /* Social media is positioned fixed, so this is just a placeholder */
+}
+
+.home-content {
+  padding-left: 40px;
+}
+
+.hello-heading {
+  color: #FFFFFF;
+  background: linear-gradient(90deg, #32F6F6 0%, #A6A79F 100%);
+  border-radius: 50px 50px 50px 0;
+  font-size: 60px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  width: 197px;
+  line-height: 1.1;
+  padding-left: 10px
+}
+
+.name-heading {
+  font-size: 60px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 30px;
+  line-height: 1.1;
+}
+
+.name-underline {
+  position: relative;
+  display: inline-block;
+  color: #BD3ECC
+}
+
+.name-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-hello);
+  border-radius: 2px;
+}
+
+.description {
+  font-size: 18px;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+.home-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.home-image {
+  
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-placeholder {
+  background-image: url("../../assets/Hero%20Background.svg");
+  background-size: cover;
+  width:100%;
+  height: 100%;
+
+  overflow: hidden;
+  position: relative;
+}
+
+.profile-image {
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+  object-position: center;
+  
+}
+
+.home-email {
+  /* Email component is positioned fixed, so this is just a placeholder */
+}
+
+@media (max-width: 1024px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .home-content {
+    padding-left: 0;
+    order: 1;
+  }
+  
+  .home-image {
+    order: 2;
+  }
+  
+  .image-placeholder {
+    width: 300px;
+    height: 380px;
+  }
+  
+  .hello-heading,
+  .name-heading {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home {
+    padding-top: 100px;
+  }
+  
+  .hello-heading,
+  .name-heading {
+    font-size: 40px;
+  }
+  
+  .description {
+    font-size: 16px;
+  }
+  
+  .image-placeholder {
+    width: 250px;
+    height: 320px;
+  }
+  
+  .home-buttons {
+    justify-content: center;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
